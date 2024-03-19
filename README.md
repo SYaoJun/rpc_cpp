@@ -1,71 +1,21 @@
-
-## tiny_rpc
-- 能不能改造成一个动态库，直接拿来使用。
-- hpp是头文件和cpp放在一起吗？
-
-----------
-
-# buttonrpc - modern rpc framework for C++
-- ZeroMQ 作为网络层
-- 使用c++14开发
-
-## Features
-- 轻量级，跨平台，简单易用
-- 服务端可以绑定自由函数，类成员函数，std::function对象
-- 服务端可以绑定参数是任意自定义类型的函数
-- 客户端与服务端自动重连机制
-- 客户端调用超时选项
-
-## Example
-server:
-
-```c++
-#include "buttonrpc.hpp"
-
-int foo(int age, int mm){
-	return age + mm;
-}
-
-int main()
-{
-	buttonrpc server;
-	server.as_server(5555);
-
-	server.bind("foo", foo);
-	server.run();
-
-	return 0;
-}
+## tiny-rpc
+- The repo origin from [buttonrpc_cpp14](https://github.com/button-chen/buttonrpc_cpp14)
+## Compile
+```c
+mkdir build
+cd build
+cmake ..
+make -j 8
 ```
-
-client: 
-
-```c++
-#include <iostream>
-#include "buttonrpc.hpp"
-
-int main()
-{
-	buttonrpc client;
-	client.as_client("127.0.0.1", 5555);
-	int a = client.call<int>("foo", 2, 3).val();
-	std::cout << "call foo result: " << a << std::endl;
-	system("pause");
-	return 0;
-}
-
-// output: call foo result: 5
-
-```
-
 ## Dependencies
-- [ZeroMQ](http://zguide.zeromq.org/page:all)
-
-
-## Building
-- windows vs2015 或者更高版本,  linux 添加编译选项：-std=c++1z
-
-## Usage
-
-- 1： 更多例子在目录 example/ 下
-
+- zmq
+```c
+cd lib && git clone https://github.com/zeromq/libzmq.git && \
+cd libzmq && mkdir build && cd build && cmake .. && make -j4 install && \
+cd /lib && git clone https://github.com/zeromq/cppzmq.git && \
+cd cppzmq && mkdir build && cd build && cmake .. && make -j4 install
+cp /usr/local/lib/libzmq.so.5 /lib
+```
+## Attention
+- On Ubuntu, We need the dynamic library libzmq.so.5.
+- If you have installed, using your executable file links this lib.

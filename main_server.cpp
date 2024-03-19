@@ -7,7 +7,6 @@
 	if (!(exp)) {\
 		std::cout << "ERROR: "; \
 		std::cout << "function: " << __FUNCTION__  << ", line: " <<  __LINE__ << std::endl; \
-		system("pause"); \
 	}\
 }\
 
@@ -78,19 +77,19 @@ PersonInfo foo_5(PersonInfo d,  int weigth)
 int main()
 {
 	buttonrpc server;
-	// server.as_server(5555);
+	server.as_server(5555);
 
-	// server.bind("foo_1", foo_1);
-	// server.bind("foo_2", foo_2);
-	// server.bind("foo_3", std::function<int(int)>(foo_3));
-	// server.bind("foo_4", foo_4);
-	// server.bind("foo_5", foo_5);
+	server.bind("foo_1", foo_1);
+	server.bind("foo_2", foo_2);
+	server.bind("foo_3", std::function<int(int)>(foo_3));
+	server.bind("foo_4", foo_4);
+	server.bind("foo_5", foo_5);
 
-	// ClassMem s;
-	// server.bind("foo_6", &ClassMem::bar, &s);
+	ClassMem s;
+	server.bind("foo_6", &ClassMem::bar, &s);
 
-	// std::cout << "run rpc server on: " << 5555 << std::endl;
-	// server.run();
+	std::cout << "run rpc server on: " << 5555 << std::endl;
+	server.run();
 
 	return 0;
 }

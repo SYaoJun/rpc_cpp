@@ -14,7 +14,6 @@
 	if (!(exp)) {\
 		std::cout << "ERROR: "; \
 		std::cout << "function: " << __FUNCTION__  << ", line: " <<  __LINE__ << std::endl; \
-		system("pause"); \
 	}\
 }\
 
