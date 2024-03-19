@@ -17,5 +17,5 @@ set(CMAKE_BUILD_TYPE "Release")
 
 # target_link_libraries(server  rpc zmq)
 # target_link_libraries(client  rpc zmq)
-add_executable(server main_client.cpp buttonrpc.h Serializer.h zmq_.h zmq.h)
+add_executable(server main_client.cpp buttonrpc.hpp Serializer.hpp zmq.hpp zmq.h)
 # add_executable(client main_server.cpp buttonrpc.hpp)
