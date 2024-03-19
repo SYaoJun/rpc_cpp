@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include "buttonrpc.h"
+#include "buttonrpc.hpp"
 
 
 #define buttont_assert(exp) { \

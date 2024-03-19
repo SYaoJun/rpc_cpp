@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <ctime>
-#include "buttonrpc.h"
+#include "buttonrpc.hpp"
 
 #ifdef _WIN32
 #include <Windows.h>  // use sleep
