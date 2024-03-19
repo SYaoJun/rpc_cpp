@@ -1,4 +1,10 @@
 
+## tiny_rpc
+- 能不能改造成一个动态库，直接拿来使用。
+- hpp是头文件和cpp放在一起吗？
+
+----------
+
 # buttonrpc - modern rpc framework for C++
 - ZeroMQ 作为网络层
 - 使用c++14开发
@@ -52,7 +58,7 @@ int main()
 
 ```
 
-## Dependences
+## Dependencies
 - [ZeroMQ](http://zguide.zeromq.org/page:all)
 
 
